@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="1.1.4" orientation="orthogonal" renderorder="right-down" width="20" height="20" tilewidth="32" tileheight="32" infinite="0" nextobjectid="1">
+ <tileset firstgid="1" source="zentile32.tsx"/>
+ <tileset firstgid="329" source="temple_blue.tsx"/>
+ <layer name="Livello tile 1" width="20" height="20">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAChNkYGAQHMWjeIRjhkHghlE8iqmBkQGt7QIAId9RMEAGAAA=
+  </data>
+ </layer>
+ <layer name="Collision" width="20" height="20">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACs3UJ08EQRjG8dnQcgkl9zEoBg5DMRRLMXAYiqE4FCEUQzEUQzEUQxNHETRxFEETNEETNEETtO/Af8OJyWZm2ckaxC+7s/u+TzLvJBMUQgSRFHt6MYNZzGEeC4r+NIO8CBaxhGWsaPrLUI4KVLrkrWIN69jApqauCtUIo8YlL4otbGMHu5q6WtShHg2Of/J89rCPAxziSJPXiCY0o8Vlvsc4wSnOcG4we5ULXOIK17jxmXeLO9zjAY8+857wjBe84k1RI887gDhJwFH7jg984gvfijx53nZGPBKQGFvLtR3oRBe6PezH7k9GClIVeT3oRR/6PeT9td8BDGIIwz7PwjaCUYxhXFMjn0er9J5uCZGBTGRZv98mMIkpTGvy5PNol96zychBCLmW+V7aHD15rPNRgEJFnsm9aSsioxglKFXkmdyb/8EP3ebRYUAGAAA=
+  </data>
+ </layer>
+</map>

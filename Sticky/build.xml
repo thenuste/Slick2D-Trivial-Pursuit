@@ -1,0 +1,88 @@
+<?xml version="1.0" ?>
+
+<!--
+Sticky Buttons: Gui Framework
+
+Targets:
+    compile: duh
+    jar:     creates non-executable archive
+    clean:   removes junk files which tend to accumlate
+
+Alex Schearer
+-->
+<project name="Sticky" default="compile">
+
+    <property name="title" value="Sticky Buttons" />
+    <property name="version" value="1.0" />
+    <property name="user.name" value="Alex Schearer" />
+    <property name="user.url" value="http://anotherearlymorning.com/" />
+    <property name="main.class" value="com.aem.sticky" />
+    <property name="target.jar" value="sticky.jar" />
+    <property name="src.dir" value="src" />
+    <property name="test.dir" value="test" />
+    <property name="tool.dir" value="tool" />
+    <property name="lib.dir" value="lib" />
+    <property name="obj.dir" value="bin" />
+    <property name="target.dir" value="." />
+    <property name="script.dir" value="script" />
+    <property name="webstart.dir" value="${target.dir}/webstart" />
+
+    <!-- Set up the environment including preparing the natives. -->
+    <target name="setup" depends="check-setup" unless="setup.exists">
+        <delete dir="${lib.dir}/natives" />
+        <mkdir dir="${lib.dir}/natives" />
+        <unzip src="${lib.dir}/natives-win32.jar" dest="${lib.dir}/natives" />
+        <unzip src="${lib.dir}/natives-mac.jar" dest="${lib.dir}/natives" />
+        <unzip src="${lib.dir}/natives-linux.jar" dest="${lib.dir}/natives" />
+    </target>
+
+    <target name="jar">
+        <antcall target="compile" />
+        <antcall target="archive" />
+    </target>
+
+    <!-- Clean up the environment. -->
+    <target name="clean">
+        <delete includeEmptyDirs="true">
+            <fileset dir="${obj.dir}" includes="**/*" defaultExcludes="no" />
+        </delete>
+        <delete file="${target.dir}/${target.jar}" />
+        <delete>
+            <fileset dir="." defaultExcludes="no">
+                <include name="**/*.DS_Store"/>
+            </fileset>
+        </delete>
+        <delete dir="${webstart.dir}" />
+    </target>
+
+    <!-- Determines whether setup has been run. -->
+    <target name="check-setup">
+        <condition property="setup.exists">
+            <available file="${lib.dir}/natives" type="dir" />
+        </condition>
+    </target>
+
+    <!-- Compile the code put results into obj.dir. -->
+    <!-- TODO is it not possible to reference lib/* instead of by name? -->
+    <target name="compile">
+        <mkdir dir="${obj.dir}" />
+        <javac destdir="${obj.dir}" debug="on">
+            <src path="${src.dir}" />
+            <classpath>
+                <pathelement path="${lib.dir}/slick.jar" />
+                <pathelement path="${lib.dir}/lwjgl.jar" />
+            </classpath>
+        </javac>
+        <copy todir="${obj.dir}">
+            <fileset dir="${test.dir}" />
+        </copy>
+    </target>
+
+    <!-- Jar compiled code and place result into target.dir. -->
+    <target name="archive">
+        <jar destfile="${target.dir}/${target.jar}" manifest="${tool.dir}/manifest.txt">
+            <fileset dir="${obj.dir}" />
+        </jar>
+    </target>
+
+</project>

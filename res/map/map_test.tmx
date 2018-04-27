@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="1.1.4" orientation="orthogonal" renderorder="right-down" width="20" height="20" tilewidth="32" tileheight="32" infinite="0" nextobjectid="1">
+ <tileset firstgid="1" source="zentile32.tsx"/>
+ <layer name="Background" width="20" height="20">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAChNkYGAQHMWjeBSP4lE8iknEAO74CKxABgAA
+  </data>
+ </layer>
+ <layer name="Objects" width="20" height="20">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACmNgoD9gp7J5/FQ2Dx1Q6l50/ZS6F59+aoQtshnkuHXUv5SBUf/itoscMJT8O9QAAKVL/3tABgAA
+  </data>
+ </layer>
+</map>
